@@ -24,3 +24,8 @@ table {
         width: 50%;
         margin: 20px auto;
     }
+
+    form {
+        text-align: center;
+        margin: 20px auto;  
+    }

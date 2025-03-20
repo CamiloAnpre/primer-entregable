@@ -49,11 +49,38 @@
         </tbody>
     </table>
 
-    <form action=""> <input type="text"> Ingrese su nombre
-    <input type="text"> Motivo de contacto
-    <input type="text"> Ingrese su correo de contacto
-    <button>Enviar</button>
+    <form id="usuario"> 
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required>
+        
+        <label for="motivo">Motivo de contacto:</label>
+        <input type="text" id="motivo" required>
+        
+        <label for="correo">Correo electronico:</label>
+        <input type="text" id="correo" required>
+        
+        <button type="submit" >Enviar</button>
+    
     </form>
+        <h2 style="text-align: center;">Motivo de contacto:</h2>
+        <p id="mensaje"> </p>
+
+    <script>
+        document.getElementById("usuario").addEventListener("submit", function (event) {
+                event.preventDefault(); 
+                let nombre = document.getElementById("nombre").value.trim();
+                let motivoContacto = document.getElementById("motivo").value.trim();
+                let correo = document.getElementById("correo").value.trim();
+
+                const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailRegex.test(correo)) {
+                alert("Por favor ingrese un correo electrónico válido.");
+                return; // Detiene el envío si el correo es inválido
+            }
+              document.getElementById("mensaje").innerText = `Nombre: ${nombre}, Motivo de contacto: ${motivoContacto}, Correo: ${correo} `;
+
+        });
+    </script>
     
 </body>
 </html>
